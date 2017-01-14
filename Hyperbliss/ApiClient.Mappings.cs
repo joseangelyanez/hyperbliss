@@ -57,11 +57,24 @@ namespace Hyperbliss
 
             public IEnumerable<T> MapAsArray<T>(string property, Func<JsonMapping, T> mapping)
             {
+                if (property == null)
+                    throw new ArgumentNullException(nameof(property));
+                if (mapping == null)
+                    throw new ArgumentNullException(nameof(mapping));
+
                 JContainer jsonContainer = Json as JContainer;
                 if (jsonContainer == null)
                     throw new ApplicationException("Invalid mapping state.");
 
-                return ApiClient.ResolveMappingAsArray(jsonContainer, mapping);
+                /* Gets the container with the specified property. */
+                var childContainer = jsonContainer[property] as JContainer;
+
+                /* Throws if container is not found.*/
+                if (childContainer == null)
+                    throw new ApplicationException($"Could not find property '{property}' or the property could not be read as an array. If the property is not an array consider using MapAsObject.");
+
+                /* Resolves the array with the child container. */
+                return ApiClient.ResolveMappingAsArray(childContainer, mapping);
             }
         }
 
