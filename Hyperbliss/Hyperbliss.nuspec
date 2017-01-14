@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Hyperbliss</id>
+    <version>1.0.0</version>
+    <title>Hyperbliss</title>
+    <authors>Jose Yanez</authors>
+    <owners>Jose Yanez</owners>
+    <licenseUrl>https://github.com/joseangelyanez/hyperbliss</licenseUrl>
+    <projectUrl>https://github.com/joseangelyanez/hyperbliss</projectUrl>
+    <!-- <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl> -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.Net library for strongly typed access to REST Api's</description>
+    <releaseNotes>Project creations</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>.Net Json API Rest Restful Newtosoft Http WebApi</tags>
+	<dependencies>
+	 <group>
+	  <dependency id="Newtosoft.Json" />
+	 </group>
+	</dependencies>
+  </metadata>
+</package>
