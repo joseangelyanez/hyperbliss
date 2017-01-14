@@ -21,6 +21,22 @@ namespace Hyperbliss
                 Json = json;
             }
 
+            public JsonMapping MapChild(string property)
+            {
+                if (property == null)
+                    throw new ArgumentNullException(nameof(property));
+
+                /* Gets the object container. */
+                JContainer container = (JContainer)Json;
+
+                /* Gets the property value. */
+                var propertyValue = container[property];
+                if (propertyValue == null)
+                    throw new ApplicationException($"Child property '{property}' could not be mapped because it could not be found in the response.");
+                
+                return new JsonMapping(propertyValue);
+            }
+
             public string Map(string property)
             {
                 JContainer container = (JContainer)Json;
