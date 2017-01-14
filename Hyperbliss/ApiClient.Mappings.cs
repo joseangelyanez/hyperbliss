@@ -21,7 +21,7 @@ namespace Hyperbliss
                 Json = json;
             }
 
-            public JsonMapping MapChild(string property)
+            public JsonMapping MapAsObject(string property)
             {
                 if (property == null)
                     throw new ArgumentNullException(nameof(property));
